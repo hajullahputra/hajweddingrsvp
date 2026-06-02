@@ -3,7 +3,7 @@ type Entry = { count: number; resetAt: number };
 const store = new Map<string, Entry>();
 
 const LIMITS: Record<string, { max: number; windowMs: number }> = {
-  rsvp:        { max: 5,  windowMs: 60_000 },   // 5 submissions / min
+  rsvp:        { max: 20, windowMs: 60_000 },   // 20 submissions / min
   reserve:     { max: 10, windowMs: 60_000 },   // 10 reservations / min
   adminLogin:  { max: 8,  windowMs: 60_000 },   // 8 login attempts / min
   adminAction: { max: 30, windowMs: 60_000 },   // 30 admin actions / min
