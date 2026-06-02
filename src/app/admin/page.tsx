@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Timestamp } from "firebase-admin/firestore";
 import AdminTable, { AdminRecord } from "@/components/AdminTable";
+import { verifySession } from "@/app/api/admin/login/route";
 
 async function getRsvps(): Promise<AdminRecord[]> {
   const snap = await adminDb.collection("rsvps").orderBy("submittedAt", "desc").get();
@@ -27,9 +28,8 @@ export default async function AdminPage({
   searchParams: Promise<{ password?: string }>;
 }) {
   const [cookieStore, params] = await Promise.all([cookies(), searchParams]);
-  const isAuth =
-    cookieStore.get("admin_auth")?.value === "true" ||
-    params.password === process.env.ADMIN_PASSWORD;
+  const token = cookieStore.get("admin_token")?.value;
+  const isAuth = verifySession(token) || params.password === process.env.ADMIN_PASSWORD;
   if (!isAuth) redirect("/admin/login");
 
   const rsvps = await getRsvps();
