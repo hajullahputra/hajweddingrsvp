@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:kadkahwinmy.com)",
+      "Bash(mkdir -p \"/Users/hajullahputra/Desktop/Dev Workstation/wedding-rsvp/src/app/api/admin/rsvp/[id]\" *)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "/Users/hajullahputra/Desktop/Dev Workstation/wedding-rsvp/src/app/api/admin/rsvp"
+    ]
+  }
+}

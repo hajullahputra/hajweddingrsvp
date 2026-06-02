@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Outer ring -->
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#C9A96E" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#C9A96E" stroke-width="0.6" opacity="0.3"/>
+
+  <!-- Monogram H & S -->
+  <text
+    x="50%"
+    y="52%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="38"
+    font-weight="400"
+    fill="#2C2926"
+    letter-spacing="-1"
+  >H&amp;S</text>
+
+  <!-- Small gold dot top -->
+  <circle cx="60" cy="6" r="2.5" fill="#C9A96E" opacity="0.6"/>
+  <!-- Small gold dot bottom -->
+  <circle cx="60" cy="114" r="2.5" fill="#C9A96E" opacity="0.6"/>
+  <!-- Small gold dot left -->
+  <circle cx="6" cy="60" r="2.5" fill="#C9A96E" opacity="0.6"/>
+  <!-- Small gold dot right -->
+  <circle cx="114" cy="60" r="2.5" fill="#C9A96E" opacity="0.6"/>
+</svg>
