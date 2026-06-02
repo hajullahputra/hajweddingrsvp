@@ -50,18 +50,22 @@ function PageFloral({ flip = false, size = 220 }: { flip?: boolean; size?: numbe
     </svg>
   );
 }
-import HeroSection from "@/components/sections/HeroSection";
+import dynamic from "next/dynamic";
+
+// Critical — loaded immediately
+import HeroSection   from "@/components/sections/HeroSection";
 import CoupleSection from "@/components/sections/CoupleSection";
-import EventSection from "@/components/sections/EventSection";
-import CountdownSection from "@/components/sections/CountdownSection";
-import RsvpSection from "@/components/sections/RsvpSection";
-import GuestCountSection from "@/components/sections/GuestCountSection";
-import DisplayWishesSection from "@/components/sections/DisplayWishesSection";
-import WishlistSection from "@/components/sections/WishlistSection";
-// import WishesSection from "@/components/sections/WishesSection";
+import EventSection  from "@/components/sections/EventSection";
 import FooterSection from "@/components/sections/FooterSection";
-import FloatingPetals from "@/components/FloatingPetals";
-import MusicPlayer from "@/components/MusicPlayer";
+
+// Below-the-fold — code-split, loaded on demand
+const CountdownSection     = dynamic(() => import("@/components/sections/CountdownSection"));
+const RsvpSection          = dynamic(() => import("@/components/sections/RsvpSection"));
+const GuestCountSection    = dynamic(() => import("@/components/sections/GuestCountSection"),    { ssr: false });
+const DisplayWishesSection = dynamic(() => import("@/components/sections/DisplayWishesSection"), { ssr: false });
+const WishlistSection      = dynamic(() => import("@/components/sections/WishlistSection"),      { ssr: false });
+const FloatingPetals       = dynamic(() => import("@/components/FloatingPetals"),                { ssr: false });
+const MusicPlayer          = dynamic(() => import("@/components/MusicPlayer"),                   { ssr: false });
 
 /* Sticky nav links */
 const NAV = [

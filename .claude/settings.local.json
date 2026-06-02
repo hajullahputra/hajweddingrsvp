@@ -8,7 +8,12 @@
       "Bash(git config *)",
       "Bash(git commit -m ' *)",
       "Bash(git remote *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(npm install *)",
+      "Bash(sudo chown -R 501:20 \"/Users/hajullahputra/.npm\")",
+      "Bash(npx vercel *)",
+      "Bash(brew install *)",
+      "Bash(npm ERR)"
     ],
     "additionalDirectories": [
       "/Users/hajullahputra/Desktop/Dev Workstation/wedding-rsvp/src/app/api/admin/rsvp"

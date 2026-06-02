@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 // Add real image paths here once photos are ready:
 // e.g. "/photos/couple-1.jpg", "/photos/couple-2.jpg"
@@ -220,16 +221,13 @@ export default function CoupleSection() {
 
       {/* Logo — below verse */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 24, gap: 10 }}>
-        <img
+        <Image
           src="/logo.png"
           alt="Wedding logo"
-          onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-          style={{
-            width: 90,
-            height: 90,
-            objectFit: "contain",
-            filter: "drop-shadow(0 2px 8px rgba(201,169,110,.25))",
-          }}
+          width={90}
+          height={90}
+          priority
+          style={{ objectFit: "contain", filter: "drop-shadow(0 2px 8px rgba(201,169,110,.25))" }}
         />
         <p className="font-script" style={{ fontSize: 18, color: "var(--gold-dark)" }}>
           #PrinceForSyahirah

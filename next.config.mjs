@@ -28,6 +28,11 @@ const nextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  images: {
+    formats: ["image/avif", "image/webp"], // serve AVIF/WebP instead of PNG
+    minimumCacheTTL: 60 * 60 * 24 * 30,   // cache optimised images for 30 days
+  },
+  compress: true,                          // Gzip all responses
 };
 
 export default nextConfig;

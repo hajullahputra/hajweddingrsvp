@@ -1,5 +1,4 @@
-// Swap to "/logo.png" once you drop your real logo into /public
-const LOGO_SRC = "/logo.png";
+import Image from "next/image";
 
 export default function FooterSection() {
   return (
@@ -9,11 +8,12 @@ export default function FooterSection() {
     >
       {/* Logo */}
       <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-        <img
-          src={LOGO_SRC}
+        <Image
+          src="/logo.png"
           alt="Wedding logo"
-          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-          style={{ width: 64, height: 64, objectFit: "contain" }}
+          width={64}
+          height={64}
+          style={{ objectFit: "contain" }}
         />
       </div>
 

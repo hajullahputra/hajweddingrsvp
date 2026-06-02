@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,17 +21,17 @@
 html { scroll-behavior: smooth; background: var(--ivory); }
 
 body {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-jost), sans-serif;
   font-weight: 300;
   color: var(--charcoal);
   background: var(--ivory);
   overflow-x: hidden;
 }
 
-/* ── Typography ── */
-.font-serif    { font-family: 'Playfair Display', serif; }
-.font-cormorant{ font-family: 'Cormorant Garamond', serif; }
-.font-script   { font-family: 'Dancing Script', cursive; }
+/* ── Typography — use CSS variables injected by next/font ── */
+.font-serif    { font-family: var(--font-playfair),   serif; }
+.font-cormorant{ font-family: var(--font-cormorant),  serif; }
+.font-script   { font-family: var(--font-dancing),    cursive; }
 .text-gold     { color: var(--gold); }
 .text-sage     { color: var(--sage); }
 .text-warm     { color: var(--warm-gray); }
@@ -51,7 +49,7 @@ body {
   border-bottom: 1px solid var(--border);
   border-radius: 0;
   padding: 10px 0;
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-jost), sans-serif;
   font-weight: 300;
   font-size: 14px;
   color: var(--charcoal);
@@ -111,7 +109,7 @@ body {
   padding: 14px 40px;
   background: var(--gold);
   color: #fff;
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -130,7 +128,7 @@ body {
   background: transparent;
   color: var(--gold);
   border: 1px solid var(--gold);
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
   letter-spacing: .15em;
   text-transform: uppercase;
@@ -147,7 +145,7 @@ body {
   background: transparent;
   color: var(--gold-dark);
   border: 1px solid var(--gold);
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -187,7 +185,7 @@ body {
   min-width: 56px;
 }
 .count-num {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair), serif;
   font-size: 34px;
   font-weight: 400;
   color: var(--charcoal);
@@ -207,7 +205,7 @@ body {
   padding: 12px 8px;
   border: 1px solid var(--border);
   background: transparent;
-  font-family: 'Jost', sans-serif;
+  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
