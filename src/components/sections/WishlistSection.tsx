@@ -10,7 +10,7 @@ const WISHLIST = [
   { id: "dinner-set",     category: "Kitchen",      name: "Dinner Set",       note:"Any" },
   { id: "bedsheet-set",   category: "Home",         name: "Bedsheet Set",     note: "King size bed" },
   { id: "towel-set",      category: "Home",         name: "Towel Set",        note: "Bath + hand towels" },
-  { id: "hair dryer",     category: "Home",         name: "Hair Dryer",       note: "Any good brand" },
+  { id: "hair-dryer",     category: "Home",         name: "Hair Dryer",       note: "Any good brand" },
 ];
 
 type Reservation = { reservedBy: string };
@@ -300,12 +300,12 @@ export default function WishlistSection() {
                   </button>
                 )}
 
-                {/* Reserved by */}
+                {/* Reserved by
                 {isReserved && (
                   <p style={{ fontSize: 9, color: "var(--warm-gray)", opacity: .7, textAlign: "center" }}>
                     by {res.reservedBy}
                   </p>
-                )}
+                )} */}
               </div>
             );
           })}
@@ -341,7 +341,7 @@ export default function WishlistSection() {
             padding: 12, marginBottom: 14,
           }}>
             <img
-              src="/qr-code.png"
+              src="/qr-code.jpg"
               alt="Bank QR Code"
               onError={e => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";

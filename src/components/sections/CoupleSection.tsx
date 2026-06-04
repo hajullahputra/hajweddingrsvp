@@ -1,11 +1,15 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
 // Add real image paths here once photos are ready:
 // e.g. "/photos/couple-1.jpg", "/photos/couple-2.jpg"
-const CAROUSEL_IMAGES: string[] = [];
+const CAROUSEL_IMAGES: string[] = [
+  "/pic1.JPG",
+  "/pic2.JPG",
+  "/pic3.JPG",
+];
 
 const SLIDE_INTERVAL = 4500;
 const PLACEHOLDER_COUNT = 3;
@@ -180,21 +184,8 @@ function Carousel() {
 }
 
 export default function CoupleSection() {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => e.isIntersecting && el.classList.add("in-view"),
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <section ref={ref} className="section text-center" style={{ background: "var(--ivory)", borderRadius: 32, margin: "0 16px", overflow: "hidden" }}>
+    <section className="section text-center" style={{ background: "var(--ivory)", borderRadius: 32, margin: "0 16px", overflow: "hidden" }}>
       {/* Bismillah */}
       <p
         className="font-cormorant italic"
@@ -244,7 +235,7 @@ export default function CoupleSection() {
             className="font-script"
             style={{ fontSize: 28, color: "var(--charcoal)", marginTop: 14, lineHeight: 1.15 }}
           >
-            Hajullah<br />Putra
+            Hj Hajullah<br />Putra
           </p>
           <p style={{ fontSize: 11, letterSpacing: ".08em", color: "var(--warm-gray)", marginTop: 4 }}>
             bin Hj Md Taib
@@ -280,7 +271,7 @@ export default function CoupleSection() {
           <p style={{ fontSize: 11, lineHeight: 1.65, color: "var(--warm-gray)" }}>
             daughter of<br />
             <span style={{ color: "var(--charcoal)", fontWeight: 400 }}>Hj Mohd Sabri bin Jusoh</span><br />
-            &amp;&nbsp;<span style={{ color: "var(--charcoal)", fontWeight: 400 }}>Hjh Siti Hurul Aini binti Jailani</span>
+            &amp;&nbsp;<span style={{ color: "var(--charcoal)", fontWeight: 400 }}>Hjh Siti Hurul 'Aini binti Jailani</span>
           </p>
         </div>
       </div>

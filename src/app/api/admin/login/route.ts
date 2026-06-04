@@ -2,8 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { randomBytes } from "crypto";
 import { rateLimit, getIp } from "@/lib/rate-limit";
 
-// In-memory session store — tokens are invalidated on server restart (fine for a small wedding site)
-const sessions = new Set<string>();
+// Stored on globalThis so the same Set is shared across Next.js module instances
+// (API routes and Server Components are compiled into separate bundles)
+const g = globalThis as typeof globalThis & { _adminSessions?: Set<string> };
+if (!g._adminSessions) g._adminSessions = new Set<string>();
+const sessions = g._adminSessions;
 
 export async function POST(req: NextRequest) {
   // Rate limit login attempts

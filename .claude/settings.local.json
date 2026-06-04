@@ -13,7 +13,10 @@
       "Bash(sudo chown -R 501:20 \"/Users/hajullahputra/.npm\")",
       "Bash(npx vercel *)",
       "Bash(brew install *)",
-      "Bash(npm ERR)"
+      "Bash(npm ERR)",
+      "Bash(xargs cat -n)",
+      "Bash(xargs ls)",
+      "Bash(git checkout *)"
     ],
     "additionalDirectories": [
       "/Users/hajullahputra/Desktop/Dev Workstation/wedding-rsvp/src/app/api/admin/rsvp"

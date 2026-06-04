@@ -9,7 +9,7 @@ const events = [
     venue: "KT Ballroom Seksyen 24 Shah Alam",
     address: "2, Jalan Pudina 24/39A, Seksyen 24, 40300 Shah Alam, Selangor",
     dresscode: "Semi-formal",
-    arrival: "12:30 PM",
+    arrival: "12:15 PM",
     mapsUrl: "https://maps.google.com/?q=KT+Ballroom+Seksyen+24+Shah+Alam",
     wazeUrl: "https://waze.com/ul?q=KT+Ballroom+Seksyen+24+Shah+Alam&navigate=yes",
   },

@@ -77,6 +77,7 @@ const NAV = [
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);
+  const [wishlistOpen, setWishlistOpen] = useState(false);
 
   return (
     <>
@@ -108,14 +109,23 @@ export default function HomePage() {
 
             {/* Sections */}
             <main style={{ maxWidth: 480, margin: "0 auto", paddingBottom: 56, display: "flex", flexDirection: "column", gap: 16 }}>
+              {/* First section — already in viewport, animate directly */}
+              <motion.div
+                id="couple"
+                initial={{ opacity: 0, y: 36 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <CoupleSection />
+              </motion.div>
+
+              {/* Below-the-fold sections — animate on scroll */}
               {[
-                { id: "couple",    el: <CoupleSection />,       delay: 0 },
                 { id: "event",     el: <EventSection />,        delay: 0.05 },
                 { id: "countdown", el: <CountdownSection />,    delay: 0 },
                 { id: "rsvp",      el: <RsvpSection />,         delay: 0 },
                 { id: "",          el: <GuestCountSection />,   delay: 0 },
                 { id: "",          el: <DisplayWishesSection />,delay: 0 },
-                { id: "wishlist",  el: <WishlistSection />,     delay: 0 },
               ].map(({ id, el, delay }, i) => (
                 <motion.div
                   key={id || i}
@@ -160,13 +170,78 @@ export default function HomePage() {
                   padding: "0 8px",
                 }}
               >
-                {NAV.map(n => (
-                  <a key={n.href} href={n.href} className="nav-link">
-                    {n.label}
-                  </a>
-                ))}
+                {NAV.map(n =>
+                  n.label === "Wishlist" ? (
+                    <button
+                      key={n.label}
+                      onClick={() => setWishlistOpen(true)}
+                      className="nav-link"
+                      style={{ background: "none", border: "none", cursor: "pointer" }}
+                    >
+                      {n.label}
+                    </button>
+                  ) : (
+                    <a key={n.href} href={n.href} className="nav-link">
+                      {n.label}
+                    </a>
+                  )
+                )}
               </div>
             </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Wishlist overlay — slides up over everything when opened */}
+      <AnimatePresence>
+        {wishlistOpen && (
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 60,
+              background: "var(--ivory)",
+              overflowY: "auto",
+            }}
+          >
+            {/* Sticky close bar */}
+            <div style={{
+              position: "sticky",
+              top: 0,
+              zIndex: 10,
+              display: "flex",
+              justifyContent: "flex-end",
+              padding: "12px 16px",
+              background: "rgba(253,248,243,.95)",
+              backdropFilter: "blur(8px)",
+              borderBottom: "1px solid var(--border)",
+            }}>
+              <button
+                onClick={() => setWishlistOpen(false)}
+                style={{
+                  background: "none",
+                  border: "1px solid var(--border)",
+                  borderRadius: 20,
+                  padding: "5px 14px",
+                  fontSize: 10,
+                  letterSpacing: ".16em",
+                  textTransform: "uppercase",
+                  color: "var(--warm-gray)",
+                  cursor: "pointer",
+                }}
+              >
+                Close
+              </button>
+            </div>
+
+            {/* Wishlist content */}
+            <div style={{ maxWidth: 480, margin: "0 auto", paddingBottom: 40 }}>
+              <WishlistSection />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
