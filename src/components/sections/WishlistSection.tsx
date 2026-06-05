@@ -102,6 +102,13 @@ export default function WishlistSection() {
   const [reservations, setReservations] = useState<Record<string, Reservation>>({});
   const [pending, setPending] = useState<typeof WISHLIST[number] | null>(null);
   const [justReserved, setJustReserved] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyAccount = () => {
+    navigator.clipboard.writeText("162218773978");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   // Real-time listener on Firestore reservations collection
   useEffect(() => {
@@ -376,9 +383,35 @@ export default function WishlistSection() {
           <p style={{ fontSize: 11, color: "var(--charcoal)", fontWeight: 400, marginBottom: 2 }}>
             Hajullah Putra bin Md Taib
           </p>
-          <p style={{ fontSize: 10, color: "var(--warm-gray)" }}>
-            Maybank · 1622 1877 3978
-          </p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+            <p style={{ fontSize: 10, color: "var(--warm-gray)" }}>
+              Maybank · 1622 1877 3978
+            </p>
+            <button
+              onClick={copyAccount}
+              title={copied ? "Copied!" : "Copy account number"}
+              style={{
+                background: copied ? "rgba(138,158,139,.15)" : "rgba(201,169,110,.08)",
+                border: `1px solid ${copied ? "var(--sage)" : "var(--gold-light)"}`,
+                borderRadius: 6, padding: "4px 6px",
+                cursor: "pointer", transition: "all .2s",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}
+            >
+              {copied ? (
+                /* Checkmark */
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path d="M2.5 6.5 L5.5 9.5 L10.5 4" stroke="var(--sage)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              ) : (
+                /* Clipboard copy icon */
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <rect x="4" y="1" width="8" height="9" rx="1.2" stroke="var(--gold-dark)" strokeWidth="1.1"/>
+                  <path d="M1 4h2.2v7.5h6V13H1V4z" fill="none" stroke="var(--gold-dark)" strokeWidth="1.1" strokeLinejoin="round"/>
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Bottom floral — mirrored */}

@@ -64,6 +64,7 @@ const RsvpSection          = dynamic(() => import("@/components/sections/RsvpSec
 const GuestCountSection    = dynamic(() => import("@/components/sections/GuestCountSection"),    { ssr: false });
 const DisplayWishesSection = dynamic(() => import("@/components/sections/DisplayWishesSection"), { ssr: false });
 const WishlistSection      = dynamic(() => import("@/components/sections/WishlistSection"),      { ssr: false });
+const ContactsSection      = dynamic(() => import("@/components/sections/ContactsSection"),      { ssr: false });
 const FloatingPetals       = dynamic(() => import("@/components/FloatingPetals"),                { ssr: false });
 const MusicPlayer          = dynamic(() => import("@/components/MusicPlayer"),                   { ssr: false });
 
@@ -72,6 +73,7 @@ const NAV = [
   { label: "Couple",   href: "#couple" },
   { label: "Event",    href: "#event" },
   { label: "RSVP",     href: "#rsvp" },
+  { label: "Contacts", href: "#contacts" },
   { label: "Wishlist", href: "#wishlist" },
 ];
 
@@ -126,6 +128,7 @@ export default function HomePage() {
                 { id: "rsvp",      el: <RsvpSection />,         delay: 0 },
                 { id: "",          el: <GuestCountSection />,   delay: 0 },
                 { id: "",          el: <DisplayWishesSection />,delay: 0 },
+                { id: "contacts",  el: <ContactsSection />,     delay: 0 },
               ].map(({ id, el, delay }, i) => (
                 <motion.div
                   key={id || i}

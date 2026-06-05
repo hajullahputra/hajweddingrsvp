@@ -232,7 +232,8 @@ body {
   font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--warm-gray);
+  color: #5a5550;
+  font-weight: 400;
   text-decoration: none;
   transition: color .2s, background .2s;
   border-radius: 8px;

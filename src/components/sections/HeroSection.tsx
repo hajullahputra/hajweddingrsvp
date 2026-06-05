@@ -127,6 +127,7 @@ export default function HeroSection({ onOpen }: { onOpen: () => void }) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.03 }}
           transition={{ duration: 0.7 }}
+          onClick={handleOpen}
           style={{
             position: "fixed",
             inset: 0,
@@ -138,6 +139,7 @@ export default function HeroSection({ onOpen }: { onOpen: () => void }) {
             textAlign: "center",
             background: "var(--ivory)",
             overflow: "hidden",
+            cursor: "pointer",
           }}
         >
           {/* Corner brackets */}
@@ -186,8 +188,8 @@ export default function HeroSection({ onOpen }: { onOpen: () => void }) {
             {/* Sub-label — double-click / double-tap to access admin */}
             <p
               className="fade-up-delay-1"
-              onDoubleClick={goAdmin}
-              onTouchEnd={handleDoubleTap}
+              onDoubleClick={e => { e.stopPropagation(); goAdmin(); }}
+              onTouchEnd={e => { e.stopPropagation(); handleDoubleTap(); }}
               style={{
                 fontSize: 9,
                 letterSpacing: ".3em",
@@ -265,7 +267,7 @@ export default function HeroSection({ onOpen }: { onOpen: () => void }) {
                 textTransform: "uppercase",
               }}
             >
-              Click to open
+              Tap anywhere to open
             </p>
           </div>
         </motion.section>
