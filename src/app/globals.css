@@ -20,6 +20,10 @@
 
 html { scroll-behavior: smooth; background: var(--ivory); }
 
+@media (max-width: 640px) {
+  html { zoom: 1.12; }
+}
+
 body {
   font-family: var(--font-jost), sans-serif;
   font-weight: 300;
