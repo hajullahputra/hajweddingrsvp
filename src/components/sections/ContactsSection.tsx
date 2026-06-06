@@ -3,7 +3,7 @@
 // ── Update these with the actual contact details ──────────────────────────────
 const CONTACTS = [
   { role: "Groom's sister",  name: "Hjh Dang Arfah",  phone: "+6016-3222004" },
-  { role: "Groom's sister",  name: "Nilam Sari",   phone: "+6016-9832110" },
+  { role: "Groom's sister",  name: "Nilam Sari",   phone: "+6011-10066210" },
 ];
 
 export default function ContactsSection() {
