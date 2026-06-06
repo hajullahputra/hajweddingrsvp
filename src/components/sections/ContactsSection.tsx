@@ -2,7 +2,7 @@
 
 // ── Update these with the actual contact details ──────────────────────────────
 const CONTACTS = [
-  { role: "Groom's sister",  name: "Hjh Dang Arfah",  phone: "+6019-2008535" },
+  { role: "Groom's sister",  name: "Hjh Dang Arfah",  phone: "+6016-3222004" },
   { role: "Groom's sister",  name: "Nilam Sari",   phone: "+6016-9832110" },
 ];
 
