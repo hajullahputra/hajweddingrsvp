@@ -7,7 +7,7 @@ const events = [
     date: "1 August 2026",
     time: "11:00 AM – 4:00 PM",
     venue: "KT Ballroom Seksyen 24 Shah Alam",
-    address: "3, Jalan Pudina 24/39A, Seksyen 24, 40300 Shah Alam, Selangor",
+    address: "2, Jalan Pudina 24/39A, Seksyen 24, 40300 Shah Alam, Selangor",
     dresscode: "Semi-formal",
     arrival: "12:15 PM",
     mapsUrl: "https://maps.google.com/?q=KT+Ballroom+Seksyen+24+Shah+Alam",
