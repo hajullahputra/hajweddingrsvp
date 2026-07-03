@@ -218,7 +218,7 @@ export default function CoupleSection() {
           width={90}
           height={90}
           priority
-          style={{ objectFit: "contain", filter: "drop-shadow(0 2px 8px rgba(201,169,110,.25))" }}
+          style={{ objectFit: "contain", filter: "drop-shadow(0 2px 8px rgba(201,169,110,.25))", width: 90, height: 90 }}
         />
         <p className="font-script" style={{ fontSize: 18, color: "var(--gold-dark)" }}>
           #PrinceForSyahirah

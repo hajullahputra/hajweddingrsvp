@@ -13,7 +13,7 @@ export default function FooterSection() {
           alt="Wedding logo"
           width={64}
           height={64}
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: "contain", width: 64, height: 64 }}
         />
       </div>
 
