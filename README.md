@@ -51,7 +51,7 @@ npm install
 
 ---
 
-### Step 3 — Set up Resend (email confirmations)
+### Step 3 — Set up Resend for Email confirmations - Optional
 
 1. Sign up at [https://resend.com](https://resend.com)
 2. **API Keys** → Create API Key → copy it
